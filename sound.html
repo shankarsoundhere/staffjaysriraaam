@@ -70,11 +70,21 @@ table {
 }
 
 th, td {
-    padding: 6px 4px;   /* पहले 14px था, अब कम */
+    padding: 6px 4px;
     border: 1px solid #ddd;
-    text-align: center;
     font-size: 13px;
-    word-break: break-word;
+}
+
+/* 1st column center */
+th:nth-child(1), td:nth-child(1) {
+    text-align: center;
+}
+
+/* 2nd & 3rd column left */
+th:nth-child(2), td:nth-child(2),
+th:nth-child(3), td:nth-child(3) {
+    text-align: left;
+    padding-left: 8px;
 }
 
 th, td {
