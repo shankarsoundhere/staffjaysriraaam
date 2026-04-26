@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel</title>
+
+<style>
+body{font-family:Arial;background:#f1f3f6;padding:10px;}
+.box{max-width:500px;margin:auto;background:white;padding:15px;border-radius:10px;}
+input,select,button{width:100%;padding:8px;margin:5px 0;}
+button{background:#28a745;color:white;border:none;}
+table{width:100%;margin-top:10px;border-collapse:collapse;}
+td{border:1px solid #ccc;padding:5px;text-align:center;}
+tr:hover{background:#e9f5ff;}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h2>Admin Panel</h2>
+
+<select id="category" onchange="loadForm(); loadData();">
+  <option value="light">लाइट मिस्त्री</option>
+  <option value="jharkila">झारकिला लेबर</option>
+  <option value="pandal">पंडाल मिस्त्री</option>
+  <option value="sound">Sound System</option>
+</select>
+
+<div id="formArea"></div>
+
+<button onclick="saveData()">Save</button>
+
+<table>
+<tbody id="tbody"></tbody>
+</table>
+
+</div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+import {
+getFirestore, collection, addDoc, getDocs,
+deleteDoc, doc
+} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  appId: "YOUR_APP_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// Collection
+function getCollection(){
+  let cat = category.value;
+  if(cat==="light"){
+    let slot = document.getElementById("slot").value;
+    return "light_slot"+slot;
+  }
+  return cat;
+}
+
+// FORM
+window.loadForm = function(){
+  let cat = category.value;
+  let f = document.getElementById("formArea");
+
+  if(cat==="light"){
+    f.innerHTML = `
+    <select id="slot" onchange="loadData()">
+      <option value="1">Slot 1</option>
+      <option value="2">Slot 2</option>
+      <option value="3">Slot 3</option>
+      <option value="4">Slot 4</option>
+      <option value="5">Slot 5</option>
+      <option value="6">Slot 6</option>
+      <option value="7">Slot 7</option>
+    </select>
+    <input id="date" placeholder="DD-MM-YYYY">
+    <input id="place" placeholder="जगह">
+    <input id="work" placeholder="काम">
+    `;
+  }
+
+  else if(cat==="jharkila"){
+    f.innerHTML = `
+    <input id="date" placeholder="DD-MM-YYYY">
+    <input id="n1" placeholder="नाम 1">
+    <input id="n2" placeholder="नाम 2">
+    <input id="n3" placeholder="नाम 3">
+    <input id="n4" placeholder="नाम 4">
+    <input id="n5" placeholder="नाम 5">
+    <input id="n6" placeholder="नाम 6">
+    <input id="n7" placeholder="नाम 7">
+    `;
+  }
+
+  else if(cat==="pandal"){
+    f.innerHTML = `
+    <input id="date" placeholder="DD-MM-YYYY">
+    <input id="place" placeholder="जगह">
+    <input id="c1" placeholder="संख्या 1">
+    <input id="c2" placeholder="संख्या 2">
+    `;
+  }
+
+  else if(cat==="sound"){
+    f.innerHTML = `
+    <input id="date" placeholder="DD-MM-YYYY">
+    <input id="place" placeholder="जगह">
+    <input id="work" placeholder="काम">
+    <input id="link" placeholder="Google Drive Link">
+    `;
+  }
+}
+
+// SAVE
+window.saveData = async function(){
+
+  let cat = category.value;
+  let col = getCollection();
+
+  let date = document.getElementById("date").value;
+
+  if(!date.match(/^\d{2}-\d{2}-\d{4}$/)){
+    alert("Date format: DD-MM-YYYY");
+    return;
+  }
+
+  let data = {};
+
+  if(cat==="light"){
+    data = {date, place:place.value, work:work.value};
+  }
+  else if(cat==="jharkila"){
+    data = {
+      date,
+      n1:n1.value,n2:n2.value,n3:n3.value,
+      n4:n4.value,n5:n5.value,n6:n6.value,n7:n7.value
+    };
+  }
+  else if(cat==="pandal"){
+    data = {
+      date,
+      place:place.value,
+      c1:c1.value,
+      c2:c2.value
+    };
+  }
+  else if(cat==="sound"){
+    data = {
+      date,
+      place:place.value,
+      work:work.value,
+      link:link.value
+    };
+  }
+
+  await addDoc(collection(db,col), data);
+  alert("Saved ✅");
+  loadData();
+}
+
+// LOAD + SORT
+window.loadData = async function(){
+
+  let cat = category.value;
+  let col = getCollection();
+
+  tbody.innerHTML="";
+
+  let snap = await getDocs(collection(db,col));
+
+  let arr = [];
+
+  snap.forEach(d=>{
+    let data = d.data();
+    data.id = d.id;
+    arr.push(data);
+  });
+
+  // 🔥 SORT (DD-MM-YYYY)
+  arr.sort((a,b)=>{
+    let da = a.date.split("-");
+    let db = b.date.split("-");
+
+    let d1 = new Date(da[2], da[1]-1, da[0]);
+    let d2 = new Date(db[2], db[1]-1, db[0]);
+
+    return d1 - d2;
+  });
+
+  arr.forEach(d=>{
+    let row="";
+
+    if(cat==="light"){
+      row = `<tr>
+      <td>${d.date}</td>
+      <td>${d.place}</td>
+      <td>${d.work}</td>
+      <td><button onclick="del('${d.id}')">🗑</button></td>
+      </tr>`;
+    }
+
+    else if(cat==="jharkila"){
+      row = `<tr>
+      <td>${d.date}</td>
+      <td>${d.n1}</td><td>${d.n2}</td><td>${d.n3}</td>
+      <td>${d.n4}</td><td>${d.n5}</td><td>${d.n6}</td><td>${d.n7}</td>
+      <td><button onclick="del('${d.id}')">🗑</button></td>
+      </tr>`;
+    }
+
+    else if(cat==="pandal"){
+      row = `<tr>
+      <td>${d.date}</td>
+      <td>${d.place}</td>
+      <td>${d.c1}</td>
+      <td>${d.c2}</td>
+      <td><button onclick="del('${d.id}')">🗑</button></td>
+      </tr>`;
+    }
+
+    else if(cat==="sound"){
+      row = `<tr onclick="${d.link ? `window.open('${d.link}','_blank')` : ''}" style="cursor:pointer;">
+      <td>${d.date}</td>
+      <td>${d.place}</td>
+      <td>${d.work}</td>
+      <td>${d.link ? "🔗" : "-"}</td>
+      <td><button onclick="event.stopPropagation(); del('${d.id}')">🗑</button></td>
+      </tr>`;
+    }
+
+    tbody.innerHTML += row;
+  });
+}
+
+// DELETE
+window.del = async function(id){
+  await deleteDoc(doc(db,getCollection(),id));
+  loadData();
+}
+
+// INIT
+loadForm();
+loadData();
+
+</script>
+
+<script>
+let pass = prompt("Password");
+if(pass!=="1234"){document.body.innerHTML="";}
+</script>
+
+</body>
+</html>
