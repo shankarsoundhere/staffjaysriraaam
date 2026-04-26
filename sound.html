@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shankar Tent House</title>
+<link rel="manifest" href="manifest.json">
+
+    <!-- Optional but important -->
+    <link rel="icon" href="favicon.png">
+    <link rel="apple-touch-icon" href="icon-192.png">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
+    background: white;
+    color: black;
+}
+
+/* Main Container */
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    overflow-x: auto;
+}
+
+/* LED Board */
+.led-board {
+    width: 100%;
+    min-width: 600px;
+    overflow: hidden;
+    white-space: nowrap;
+    background: black;
+    padding: 15px 0;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.led-text {
+    display: inline-block;
+    font-size: 36px;
+    font-weight: bold;
+    animation: scrollText 12s linear infinite;
+}
+
+@keyframes scrollText {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.saffron { color: orange; }
+.white { color: white; }
+.green { color: #00ff00; }
+
+/* NEW: Table container for scroll */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Table */
+table {
+    width: 100%;
+    min-width: 600px; /* important */
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 14px;
+    border: 1px solid #ddd;
+    word-break: break-word; /* NEW */
+}
+
+th {
+    background: #4facfe;
+    color: white;
+    font-size: 16px;
+}
+
+tr {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+tr:hover {
+    background: #ddd;
+}
+
+/* Mobile Responsive */
+@media(max-width:600px){
+    .led-text { font-size: 18px; }
+
+    th, td { 
+        font-size: 11px; 
+        padding: 6px; 
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="led-board">
+    <div class="led-text">
+        <span class="saffron">शंकर टेंट हाउस</span> 
+        <span class="white">लखीसराय</span> 
+        <span class="green">7004814456 , 6200164687</span>
+    </div>
+</div>
+
+<table>
+
+<tr>
+    <th>दिनांक</th>
+    <th>काम</th>
+    <th>कहां जाएगा</th>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/FILE5/view','_blank')">
+<td>20-04-2026</td>
+<td>D.J</td>
+<td>मोरमा से कजरा</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1EDXq8ekKJM6VSSLxDH_HtNJXL7uxYteQ/view?usp=drivesdk','_blank')">
+<td>20-04-2026</td>
+<td>Golden रथ, झारकिला</td>
+<td>धरारा स्टेशन के पास</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1UAJKZWk72aKH0OjfbupBW0yvGDRfLLAr/view?usp=drivesdk','_blank')">
+<td>20-04-2026</td>
+<td>रथ, झारकिला</td>
+<td>प्रतापपुर से कुरुमुरी</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1HWFLzV86S2cAh0E7QZBTzGbQHFDZl4zZ/view?usp=drivesdk','_blank')">
+<td>20-04-2026</td>
+<td>Rolls Royce</td>
+<td>बरबट्टा जमुई से सिरचन नवादा (जमुई)</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1WNrh_0zZmfac_EOgtIWSSvRAp0J4TOHP/view?usp=drivesdk','_blank')">
+<td>20-04-2026</td>
+<td>घर के काम</td>
+<td>ओफापुर</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1Ib-mYZXGrKe-DnOXUMH1ocLkbj_k3Fqx/view?usp=drivesdk','_blank')">
+<td>20-04-2026</td>
+<td>घर के काम</td>
+<td>गोसाईं टोला</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/11XaAZvY1VAm_48M7Z-3yUSAc25Msd2eP/view?usp=drivesdk','_blank')">
+<td>21-04-2026</td>
+<td>D.J</td>
+<td>छबीलाठीका से मुकीमपुर</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/FILE6/view','_blank')">
+<td>25-04-2026</td>
+<td>D.J</td>
+<td>भल्लू D.J</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1mRf9UGlCCk3gK0ncF0iyp4xW04LcKWw4/view?usp=drivesdk','_blank')">
+<td>26-04-2026</td>
+<td>रथ</td>
+<td>कछैना से बाढ़</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1nzeaMJ9TSKV0dCQHiHFVUh3OMUyDKRBq/view?usp=drivesdk','_blank')">
+<td>26-04-2026</td>
+<td>D.J</td>
+<td>शेखपुरा से केतरीसराय</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1Zz2QhscD_e9OKozKyQ4YpYueFzlrTPZo/view?usp=drivesdk','_blank')">
+<td>26-04-2026</td>
+<td>घर के काम</td>
+<td>ममता धाम</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1m3Y4wjr0KT5gxHOX3BH3Yp4rs5FSTJq_/view?usp=drivesdk','_blank')">
+<td>27-04-2026</td>
+<td>रथ</td>
+<td>दरियापुर</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1mJ2myZvF-M5BkCh7pQvXSWvlxEMruFgj/view?usp=drivesdk','_blank')">
+<td>27-04-2026</td>
+<td>गोल्डन रथ</td>
+<td>चूहारचक से इंदुपुर</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1Nwvhx2wX7ogEZbnlOty1UYYFWHphWZLV/view?usp=drivesdk','_blank')">
+<td>27-04-2026</td>
+<td>झाड़किला</td>
+<td>श्रीखिंडी हालसी</td>
+</tr>
+
+<tr onclick="window.open('','_blank')">
+<td>27-04-2026</td>
+<td>झाड़किला</td>
+<td>दरियापुर</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1sDOL04RzEELWrbD79JnBvxOQTiys3uuP/view?usp=drivesdk','_blank')">
+<td>27-04-2026</td>
+<td>घर के काम</td>
+<td>संत जोसफ के पास</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1rg44l_q_CSzWcxNNE5o5rwJ6bDRdfZHk/view?usp=drivesdk','_blank')">
+<td>27-04-2026</td>
+<td>D.J , Rolls Royce, छाता 6</td>
+<td>स्टेट बैंक के पास</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1rg44l_q_CSzWcxNNE5o5rwJ6bDRdfZHk/view?usp=drivesdk','_blank')">
+<td>27-04-2026</td>
+<td>घर के काम</td>
+<td>स्टेट बैंक के पास</td>
+</tr>
+<tr onclick="window.open('https://drive.google.com/file/d/1G5YlqdeejDFUswE3iEV5AbY5yDuQEYQ7/view?usp=drivesdk','_blank')">
+<td>28-04-2026</td>
+<td>D.J</td>
+<td>वागी पर</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1M_T4n-iXOd7w_FyP9a5pjO_ZeQ5mEB3r/view?usp=drivesdk','_blank')">
+<td>29-04-2026</td>
+<td>रथ</td>
+<td>लखैय से बेलहर</td>
+</tr>
+
+
+<tr onclick="window.open('https://drive.google.com/file/d/1Vtp8akYX6lnfqlVyumXK2RvzXw5ilK4l/view?usp=drivesdk','_blank')">
+<td>29-04-2026</td>
+<td>D.J</td>
+<td>संत जोसेफ के पास</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1Vtp8akYX6lnfqlVyumXK2RvzXw5ilK4l/view?usp=drivesdk','_blank')">
+<td>29-04-2026</td>
+<td>घर के काम</td>
+<td>संत जोसफ के पास</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1RpBPOuAXJtr-uQWh_DzhiCDzNLpkEPUX/view?usp=drivesdk','_blank')">
+<td>30-04-2026</td>
+<td>रथ</td>
+<td>सीता रामपुर से ककरौरी</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1CeswbJfQgHYR3ThOQb_9HTPes2lL1Kvt/view?usp=drivesdk','_blank')">
+<td>30-04-2026</td>
+<td>रथ, D.J</td>
+<td>बिछवे से वारसलीगंज</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1003F74f2qJ9RoZyClomLadhsSFqzukTW/view?usp=drivesdk','_blank')">
+<td>30-04-2026</td>
+<td>Rolls Royce</td>
+<td>संसार पोखर से अलीगंज</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1o4Ds_t8IuolT2IXPTdhJLvvFIFAv28Qi/view?usp=drivesdk','_blank')">
+<td>30-04-2026</td>
+<td>घर के काम</td>
+<td>गणपति इलेक्ट्रॉनिक</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1LxXtw5Y1C_YNuwBCOjx9n3BMA1-9PVGP/view?usp=drivesdk','_blank')">
+<td>30-04-2026</td>
+<td>झारकिला</td>
+<td>पंचमुखी चौक से बब्लू शर्मा मैरेज हॉल</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/14Aai6fJEKIRcrw1IBtboRvDOOEXsQe_W/view?usp=drivesdk','_blank')">
+<td>01-05-2026</td>
+<td>Golden रथ</td>
+<td>हालसी आगत से नूरसराय बिहार शरीफ</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1bcHLv8KJLOp5Q70xmDELRTCsvN_9AxfK/view?usp=drivesdk','_blank')">
+<td>01-05-2026</td>
+<td>DJ</td>
+<td>बायपास चौक</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1KHoL9kCBn3EOqYUMQkCzLRNEQ8-W7yUn/view?usp=drivesdk','_blank')">
+<td>05-05-2026</td>
+<td>उजला घोड़ा रथ</td>
+<td>पारो (मलयपुर वाला रास्ता)</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1o4Ds_t8IuolT2IXPTdhJLvvFIFAv28Qi/view?usp=drivesdk','_blank')">
+<td>05-05-2026</td>
+<td>Rolls Royce, छाता 6</td>
+<td>गणपति इलेक्ट्रॉनिक से संगम मैरेज हॉल</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1ZSc1E8hj2C5YAkeW9pk-3Pzte8PCHbst/view?usp=drivesdk','_blank')">
+<td>24-06-2026</td>
+<td>रथ</td>
+<td>जॉयस से चित्तौरा</td>
+</tr>
+
+<tr onclick="window.open('https://drive.google.com/file/d/1-Ep90n8Cuzt0sJtK-IDnFolIO7iazmSj/view?usp=drivesdk','_blank')">
+<td>25-06-2026</td>
+<td>D.J, रथ, झारकिला</td>
+<td>संसार पोखर</td>
+</tr>
+
+</table>
+
+</div>
+
+</body>
+</html>
