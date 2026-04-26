@@ -65,17 +65,20 @@ body {
 /* Table */
 table {
     width: 100%;
-    min-width: 600px; /* important */
     border-collapse: collapse;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    border-radius: 10px;
-    overflow: hidden;
+    table-layout: auto;   /* fixed नहीं रखना */
 }
 
 th, td {
-    padding: 14px;
+    padding: 6px 4px;   /* पहले 14px था, अब कम */
     border: 1px solid #ddd;
-    word-break: break-word; /* NEW */
+    text-align: center;
+    font-size: 13px;
+    word-break: break-word;
+}
+
+th, td {
+    white-space: nowrap;   /* line break रोक देगा */
 }
 
 th {
