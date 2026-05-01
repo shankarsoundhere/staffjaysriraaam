@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Udhaari List</title>
+
+<style>
+body {
+  font-family: Arial;
+  background:#dcdde1;
+  padding:10px;
+}
+
+.box {
+  background:#f1f2f6;
+  padding:12px;
+  margin:12px 0;
+  border-radius:15px;
+  box-shadow:0 4px 8px rgba(0,0,0,0.1);
+}
+
+.top {
+  display:flex;
+  gap:10px;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.top span {
+  background:#dfe4ea;
+  padding:3px 8px;
+  border-radius:8px;
+}
+
+.detail {
+  margin-top:6px;
+  font-size:13px;
+}
+
+.bottom {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:8px;
+}
+
+.nameBox { font-size:14px; }
+
+.number {
+  display:none;
+  font-size:13px;
+  color:blue;
+}
+
+.toggle {
+  font-size:12px;
+  color:blue;
+  cursor:pointer;
+}
+
+.btnGroup {
+  display:flex;
+  gap:8px;
+}
+
+.btn {
+  padding:7px 12px;
+  background:linear-gradient(45deg,#28a745,#34d058);
+  color:white;
+  border-radius:25px;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.single .btn2 {
+  display:none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔥 10 BOX START -->
+
+<!-- 1 -->
+<div class="box single">
+  <div class="top">
+    <span>20-04-2026</span><span>DJ</span><span>गोसाईं टोला</span>
+  </div>
+  <div class="detail">500 में बात था, 300 दिया, 200 बाकी</div>
+  <div class="bottom">
+    <div class="nameBox">
+      👤 Ramesh <span class="toggle" onclick="toggleNumber(0)">Show</span><br>
+      <span class="number" id="num0">📞 9876543210</span>
+    </div>
+    <div class="btnGroup">
+      <a href="tel:9876543210" class="btn">📞 Call</a>
+      <a href="tel:9876543211" class="btn btn2">📞 Call</a>
+    </div>
+  </div>
+</div>
+
+<!-- 2 -->
+<div class="box">
+  <div class="top">
+    <span>21-04-2026</span><span>Light</span><span>Station Road</span>
+  </div>
+  <div class="detail">800 में बात था, 400 दिया, 400 बाकी</div>
+  <div class="bottom">
+    <div class="nameBox">
+      👤 Suresh <span class="toggle" onclick="toggleNumber(1)">Show</span><br>
+      <span class="number" id="num1">📞 9123456780</span>
+    </div>
+    <div class="btnGroup">
+      <a href="tel:9123456780" class="btn">📞 Call</a>
+      <a href="tel:9988776655" class="btn btn2">📞 Call</a>
+    </div>
+  </div>
+</div>
+
+<!-- 3 -->
+<div class="box single">
+  <div class="top">
+    <span>22-04-2026</span><span>Tent</span><span>Market Area</span>
+  </div>
+  <div class="detail">1000 में बात था, 500 दिया, 500 बाकी</div>
+  <div class="bottom">
+    <div class="nameBox">
+      👤 Amit <span class="toggle" onclick="toggleNumber(2)">Show</span><br>
+      <span class="number" id="num2">📞 9000000001</span>
+    </div>
+    <div class="btnGroup">
+      <a href="tel:9000000001" class="btn">📞 Call</a>
+      <a href="#" class="btn btn2">📞 Call</a>
+    </div>
+  </div>
+</div>
+
+<!-- 4 -->
+<div class="box">
+  <div class="top">
+    <span>23-04-2026</span><span>DJ</span><span>Bus Stand</span>
+  </div>
+  <div class="detail">700 में बात था, 200 दिया, 500 बाकी</div>
+  <div class="bottom">
+    <div class="nameBox">
+      👤 Rahul <span class="toggle" onclick="toggleNumber(3)">Show</span><br>
+      <span class="number" id="num3">📞 9000000002</span>
+    </div>
+    <div class="btnGroup">
+      <a href="tel:9000000002" class="btn">📞 Call</a>
+      <a href="tel:9111111111" class="btn btn2">📞 Call</a>
+    </div>
+  </div>
+</div>
+
+<!-- 5 -->
+<div class="box single">
+  <div class="top">
+    <span>24-04-2026</span><span>Light</span><span>Village</span>
+  </div>
+  <div class="detail">600 में बात था, 300 दिया, 300 बाकी</div>
+  <div class="bottom">
+    <div class="nameBox">
+      👤 Mohan <span class="toggle" onclick="toggleNumber(4)">Show</span><br>
+      <span class="number" id="num4">📞 9000000003</span>
+    </div>
+    <div class="btnGroup">
+      <a href="tel:9000000003" class="btn">📞 Call</a>
+      <a href="#" class="btn btn2">📞 Call</a>
+    </div>
+  </div>
+</div>
+
+<!-- 6 -->
+<div class="box">
+  <div class="top">
+    <span>25-04-2026</span><span>Tent</span><span>Highway</span>
+  </div>
+  <div class="detail">1200 में बात था, 600 दिया, 600 बाकी</div>
+  <div class="bottom">
+    <div class="nameBox">
+      👤 Sonu <span class="toggle" onclick="toggleNumber(5)">Show</span><br>
+      <span class="number" id="num5">📞 9000000004</span>
+    </div>
+    <div class="btnGroup">
+      <a href="tel:9000000004" class="btn">📞 Call</a>
+      <a href="tel:9222222222" class="btn btn2">📞 Call</a>
+    </div>
+  </div>
+</div>
+
+<!-- 7 -->
+<div class="box single">
+  <div class="top">
+    <span>26-04-2026</span><span>DJ</span><span>Temple</span>
+  </div>
+  <div class="detail">900 में बात था, 400 दिया, 500 बाकी</div>
+  <div class="bottom">
+    <div class="nameBox">
+      👤 Deepak <span class="toggle" onclick="toggleNumber(6)">Show</span><br>
+      <span class="number" id="num6">📞 9000000005</span>
+    </div>
+    <div class="btnGroup">
+      <a href="tel:9000000005" class="btn">📞 Call</a>
+      <a href="#" class="btn btn2">📞 Call</a>
+    </div>
+  </div>
+</div>
+
+<!-- 8 -->
+<div class="box">
+  <div class="top">
+    <span>27-04-2026</span><span>Light</span><span>School</span>
+  </div>
+  <div class="detail">750 में बात था, 350 दिया, 400 बाकी</div>
+  <div class="bottom">
+    <div class="nameBox">
+      👤 Vikas <span class="toggle" onclick="toggleNumber(7)">Show</span><br>
+      <span class="number" id="num7">📞 9000000006</span>
+    </div>
+    <div class="btnGroup">
+      <a href="tel:9000000006" class="btn">📞 Call</a>
+      <a href="tel:9333333333" class="btn btn2">📞 Call</a>
+    </div>
+  </div>
+</div>
+
+<!-- 9 -->
+<div class="box single">
+  <div class="top">
+    <span>28-04-2026</span><span>Tent</span><span>Farm</span>
+  </div>
+  <div class="detail">1100 में बात था, 500 दिया, 600 बाकी</div>
+  <div class="bottom">
+    <div class="nameBox">
+      👤 Ajay <span class="toggle" onclick="toggleNumber(8)">Show</span><br>
+      <span class="number" id="num8">📞 9000000007</span>
+    </div>
+    <div class="btnGroup">
+      <a href="tel:9000000007" class="btn">📞 Call</a>
+      <a href="#" class="btn btn2">📞 Call</a>
+    </div>
+  </div>
+</div>
+
+<!-- 10 -->
+<div class="box">
+  <div class="top">
+    <span>29-04-2026</span><span>DJ</span><span>City</span>
+  </div>
+  <div class="detail">1300 में बात था, 700 दिया, 600 बाकी</div>
+  <div class="bottom">
+    <div class="nameBox">
+      👤 Karan <span class="toggle" onclick="toggleNumber(9)">Show</span><br>
+      <span class="number" id="num9">📞 99392128</span>
+    </div>
+    <div class="btnGroup">
+      <a href="tel:9709759181" class="btn">📞 Call</a>
+      <a href="tel:9444444444" class="btn btn2">📞 Call</a>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleNumber(i){
+  let num = document.getElementById("num"+i);
+  num.style.display = (num.style.display==="block") ? "none" : "block";
+}
+</script>
+
+</body>
+</html>
